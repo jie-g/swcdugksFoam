@@ -1,3 +1,5 @@
+# swcdugksFoam
+
 ## About
 
 This project has successfully ported the `cdugksFoam` solver to the Sunway TaihuLight platform and made a series of targeted optimizations.
