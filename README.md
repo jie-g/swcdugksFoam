@@ -2,7 +2,7 @@
 
 ## About
 
-This project has successfully ported the `cdugksFoam` solver to the Sunway TaihuLight platform and made a series of targeted optimizations.
+This project has successfully ported the `cdugksFoam` solver to the Sunway TaihuLight platform and made a series of targeted optimizations. The cdugksFoam solver relies on the OpenFOAM framework and adopts the numerical format of the discrete unified gas kinetic scheme (DUGKS). The cdugksFoam solver features hybrid spatial decomposition for largescale computations.
 
 ## Installation
 
@@ -13,7 +13,7 @@ Then, installation is carried out according to the following procedure:
 ```
 git clone https://github.com/jie-g/swcdugksFoam.git
 cd swcdugksFoam/src/fvDVM/swFunctions/src
-./run
+./slavebuild
 cd swcdugksFoam/src/
 ./Allwmake
 ```
@@ -21,7 +21,25 @@ cd swcdugksFoam/src/
 Tip: You can change the macros in `para.h` to suit your needs. It will produce a different effect. Note that you need to recompile after changing.
 ## Demo
 
-The 2D lid-driven cavity flow simulation in the paper is provided in `swcdugksFoam/demo/cavity0.1`, which you can try to test.
+The 2D lid-driven cavity flow simulation in the paper is provided in `swcdugksFoam/demo/cavity0.1`, which you can try to execute the uniform routine listed below.
+1. Domain decomposition
+```
+python multidecompose.py -p M -v N
+```
+`M` means physical space is decomposed into `M` subdomains, `N` means velocity space is decomposed into `N` subdomains. 
+
+2. Launch MPI processes
+```
+bsub -b -n C -cgsp 64 -share_size 7000 -host_stack 1024 -q q_sw_expr -sw3run swrun-5a -o log.txt dugksFoam -parallel -dvParallel -pd M
+```
+`C` means the number of core groups (CGs) used to run the program and also the number of parallel processes, `M` means physical space is decomposed into `M` subdomains.  
+
+3. Get computational results
+```
+reconsructPar
+```
+This command is provided by OpenFOAM to recombination the flow properties of different physical subdomains.
+
 ## References
 
 - [1] L. Zhu, [dugksFoam](https://github.com/zhulianhua/dugksFoam).  
