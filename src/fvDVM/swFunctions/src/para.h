@@ -16,9 +16,9 @@
 #define MACROSURF_REG_COM
 
 /* ghsurf_slave.c */
-#define GHSURF_USE_SIMD//和修改超越函数一起，可以加速，单数误差变大
+#define GHSURF_USE_SIMD//
 #define GHSURF_TRAN_FUN
-#define GHSURF_REG_COM//这里的寄存器通信和双缓冲只能留一个，同时用两个数据上有问题，原因还不知道
+#define GHSURF_REG_COM//
 
 /* ghtildevol_slave.c */
 // // #define GHTILDEVOL_USE_SIMD
