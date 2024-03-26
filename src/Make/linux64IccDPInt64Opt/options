@@ -1,0 +1,11 @@
+# 1 "Make/options"
+# 1 "<built-in>"
+# 1 "<命令行>"
+# 1 "Make/options"
+sinclude $(GENERAL_RULES)/mplib$(WM_MPLIB)
+sinclude $(RULES)/mplib$(WM_MPLIB)
+
+EXE_INC = -Wno-unused-variable -Wno-old-style-cast $(PFLAGS) $(PINC) -I$(LIB_SRC)/finiteVolume/lnInclude -I$(LIB_SRC)/OpenFOAM/lnInclude -I$(LIB_SRC)/meshTools/lnInclude -IfvDVM/lnInclude -I../inc/FoamDefs/$(WM_PROJECT_VERSION) -I/home/export/online3/amd_nwpu/swlu-gcc710/include
+# 13 "Make/options"
+
+EXE_LIBS = $(PLIBS) -L$(FOAM_USER_LIBBIN) -lfiniteVolume -lcdugksFoam -lmeshTools -L/home/export/online3/amd_nwpu/swlu-gcc710/lib -lswlu_mpi -pg 

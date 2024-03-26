@@ -1,0 +1,3 @@
+dugksFoam.C
+
+EXE = $(FOAM_APPBIN)/dugksFoam

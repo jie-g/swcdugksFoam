@@ -1,0 +1,11 @@
+# 1 "Make/options"
+# 1 "<built-in>"
+# 1 "<命令行>"
+# 1 "Make/options"
+sinclude $(GENERAL_RULES)/mplib$(WM_MPLIB)
+sinclude $(RULES)/mplib$(WM_MPLIB)
+
+EXE_INC = -Wno-unused-variable -Wno-old-style-cast $(PFLAGS) $(PINC) -I$(LIB_SRC)/finiteVolume/lnInclude -I$(LIB_SRC)/OpenFOAM/lnInclude -I$(LIB_SRC)/meshTools/lnInclude -IfvDVM/lnInclude -I../inc/FoamDefs/$(WM_PROJECT_VERSION) -I/home/export/online3/amd_nwpu/swlu-gcc710/include 
+# 13 "Make/options"
+
+EXE_LIBS = $(PLIBS) -L$(FOAM_USER_LIBBIN) -lfiniteVolume -ldugksFoam -lmeshTools -L/home/export/online3/amd_nwpu/swlu-gcc710/lib -lswlu_mpi -pg -L/home/export/online3/amd_nwpu/guojie/swcdugksFoam/swcdugksFoam/src/fvDVM/swFunctions -l:libghbarpvol_slave.a -L/home/export/online3/amd_nwpu/guojie/swcdugksFoam/swcdugksFoam/src/fvDVM/swFunctions -l:libmacrosurf_slave.a -L/home/export/online3/amd_nwpu/guojie/swcdugksFoam/swcdugksFoam/src/fvDVM/swFunctions -l:libghsurf_slave.a -L/home/export/online3/amd_nwpu/guojie/swcdugksFoam/swcdugksFoam/src/fvDVM/swFunctions -l:libghtildevol_slave.a -L/home/export/online3/amd_nwpu/guojie/swcdugksFoam/swcdugksFoam/src/fvDVM/swFunctions -l:libmacrovol_slave.a -L/home/export/online3/amd_nwpu/guojie/swcdugksFoam/swcdugksFoam/src/fvDVM/swFunctions -l:libgaussgrad_slave.a -L/home/export/online3/amd_nwpu/guojie/swcdugksFoam/swcdugksFoam/src/fvDVM/swFunctions -l:libvariable_slave.a -mhybrid -lm_slave -L/home/export/online3/amd_nwpu/guojie/swcdugksFoam/swcdugksFoam/src -l:libswperf.a

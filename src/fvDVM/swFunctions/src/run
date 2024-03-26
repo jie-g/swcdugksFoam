@@ -1,0 +1,40 @@
+# rm -f libfvDVM_slave.a 
+# rm -f fvDVM_slave.o
+# sw5gcc -mslave -c fvDVM_slave.c -o fvDVM_slave.o -lm_slave -msimd 
+# swar cr libfvDVM_slave.a fvDVM_slave.o
+# -LNO:full_unroll=4 -LNO:vintr=2 -lm_sw2_simd_noieee -lm_sw2_noieee  -mfma -ver 5.421-sw-gy -lm_sw2_simd_noieee -lm_sw2_noieee -lswperf -LNO:simd=1 
+rm -f ../libghbarpvol_slave.a 
+rm -f ghbarpvol_slave.o
+sw5gcc -mslave -c ghbarpvol_slave.c -o ghbarpvol_slave.o -lm_slave -msimd 
+swar cr ../libghbarpvol_slave.a ghbarpvol_slave.o
+
+rm -f ../libmacrosurf_slave.a 
+rm -f macrosurf_slave.o
+sw5gcc -mslave -c macrosurf_slave.c -o macrosurf_slave.o -lm_slave -msimd 
+swar cr ../libmacrosurf_slave.a macrosurf_slave.o
+
+rm -f ../libghsurf_slave.a 
+rm -f ghsurf_slave.o
+sw5gcc -mslave -c ghsurf_slave.c -o ghsurf_slave.o -lm_slave -msimd 
+swar cr ../libghsurf_slave.a ghsurf_slave.o
+
+rm -f ../libghtildevol_slave.a
+rm -f ghtildevol_slave.o
+sw5gcc -mslave -c ghtildevol_slave.c -o ghtildevol_slave.o -lm_slave -msimd 
+swar cr ../libghtildevol_slave.a ghtildevol_slave.o
+
+rm -f ../libmacrovol_slave.a 
+rm -f macrovol_slave.o
+sw5gcc -mslave -c macrovol_slave.c -o macrovol_slave.o -lm_slave -msimd 
+swar cr ../libmacrovol_slave.a macrovol_slave.o
+
+
+rm -f ../libgaussgrad_slave.a 
+rm -f gaussgrad_slave.o
+sw5gcc -mslave -c gaussgrad_slave.c -o gaussgrad_slave.o -lm_slave -msimd 
+swar cr ../libgaussgrad_slave.a gaussgrad_slave.o
+
+rm -f ../libvariable_slave.a 
+rm -f variable_slave.o
+sw5gcc -mslave -c variable_slave.c -o variable_slave.o -lm_slave -msimd 
+swar cr ../libvariable_slave.a variable_slave.o
